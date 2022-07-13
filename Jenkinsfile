@@ -36,4 +36,11 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+           mail to: "aneudy.mota@outlook.com",
+           subject: "Completed Pipeline: ${currentBuild.fullDisplayName}",
+           body: "Your build completed, please check: ${env.BUILD_URL}"
+        }
+    }
 }
